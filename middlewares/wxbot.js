@@ -76,26 +76,27 @@ async function watchWechatState(req, res) {
                     const aitalker = contactList.find((item) => { return item.id === loginUser.UserName });
                     if (aitalker) aitalker.headImg = loginUser.headImg;
                     newMsg.payload.talker = aitalker;
-
+/*
                     if (msg.payload.hasOwnProperty('roomId')) {
                         bot.puppet.wechat4u.sendMsg(content.result, msg.payload.roomId).then(async (response) => {
                             //const newMsg = await bot.Message.find({ id: res.MsgID }) // 取不到刚自动发的消息
                             newMsg.id = response.MsgID;
-                            /*newMsg._events = response._events;
+                            newMsg._events = response._events;
                             newMsg._eventsCount = 0;
                             newMsg._maxListeners = msg._maxListeners;
-                            newMsg.mentionIdList = msg.mentionIdList;*/
+                            newMsg.mentionIdList = msg.mentionIdList;
                             newMsg.payload.id = response.MsgID;
                             newMsg.payload.roomId = msg.payload.roomId;
 
                             console.log('msg = ', msg);
                             console.log('newMsg = ', newMsg);
                             sendEvent(res, 'AI回复', newMsg, 'message');
+
                             //bot.emit('message', newMsg);
                         })
                     }
                     else {
-                        bot.puppet.wechat4u.sendMsg(content.result, room.payload.listenerId).then(async (res) => {
+                        bot.puppet.wechat4u.sendMsg(content.result, room.payload.listenerId).then(async (response) => {
                             //const newMsg = await bot.Message.find({ id: res.MsgID })
                             newMsg.id = response.MsgID;
                             newMsg.payload.id = response.MsgID;
@@ -110,7 +111,7 @@ async function watchWechatState(req, res) {
                             sendEvent(res, 'AI回复', newMsg, 'message');
                         })
                     }
-
+*/
                     /*room.say(content.result).then((res)=>{
                         console.log('res = ', res);
                     });*/
