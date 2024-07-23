@@ -307,6 +307,7 @@
         var timeCls = msg.payload.talkerId === me.UserName ? 'time-r' : 'time-l';
         var msgCls = msg.payload.talkerId === me.UserName ? 'text-msg-r' : 'text-msg-l';
         var imgCls = msg.payload.talkerId === me.UserName ? 'wx-user-head ml-5' : 'wx-user-head';
+        var nickName = msg.payload.talkerId === me.UserName ? me.NickName : talker.payload.name;
 
         html +=`                                  <div class='col ${floatCls}' data-key=${msg.id}>`;
         html +=`                                    <div class='card no-border'>`;
@@ -317,7 +318,7 @@
             html +=`                                           </div>`;
         }
         html +=`                                           <div class='col-md-10 card-body'>`;
-        html +=`                                            <div class='${timeCls}'><span>${me.NickName}</span><span class='pl-15'>${time}</span></div>`;
+        html +=`                                            <div class='${timeCls}'><span>${nickName}</span><span class='pl-15'>${time}</span></div>`;
         html +=`                                            <div class='${msgCls}'>${msg.payload.text}</div>`;
         html +=`                                           </div>`;
         if(msg.payload.talkerId === me.UserName){

@@ -46,7 +46,7 @@ async function getContactAvatar(req, res) {
   try {
     const token = req.cookies['token'];
     let bot = req.app.locals.bots[token];
-    console.log('getContactAvatar -> bot: ', bot);
+    //console.log('getContactAvatar -> bot: ', bot);
     let uId = req.params.uId;
     const contact = await bot.Contact.find({ id: uId });
     if (!contact) res.send({ code: 1, msg: 'failed', img: `/img/weixin.jpg` });
